@@ -1,7 +1,7 @@
 package com.sharmi.StudentAPI.Model;
 
-public class Student {
-	private String id;
+public class Student extends PrimaryId<String> {
+
 	private String name;
 	private int age;
 	private double gpa;
@@ -9,17 +9,12 @@ public class Student {
 	
 	public Student(String id, String name, int age, double gpa) {
 		
-		this.id = id;
+		this.Id = id;
 		this.name = name;
 		this.age = age;
 		this.gpa = gpa;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public String getName() {
 		return name;
 	}

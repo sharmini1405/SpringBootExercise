@@ -1,11 +1,8 @@
 package com.sharmi.StudentAPI.Controller;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,48 +13,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sharmi.StudentAPI.Model.Student;
+import com.sharmi.StudentAPI.Model.Course;
 import com.sharmi.StudentAPI.Repo.Repo;
-
-
 @RestController
-@RequestMapping("/student")
-public class StudentController {
-	
-	private Repo<String,Student> studentRepo=new Repo<String,Student>();
-	//private List<Student> studentList=new ArrayList<Student>();
-	
+@RequestMapping("/course")
+public class CourseController {
+	private Repo<String,Course> courseRepo=new Repo<String,Course>();
+ 	
 	@GetMapping
-	public Collection<Student> getAll()
+	public Collection<Course> getAll()
 	{
 		
-		return studentRepo.getAll();
+		return courseRepo.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Student get(@PathVariable("id") String id)
+	public Course get(@PathVariable("id") String id)
 	{
 		
-		return studentRepo.get(id);
+		return courseRepo.get(id);
 	}
 	@PostMapping
-	public void add(@RequestBody Student student) {
-		studentRepo.add(student);
+	public void add(@RequestBody Course course) {
+		courseRepo.add(course);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable("id") String id)
 	{
-		studentRepo.delete(id);
+		courseRepo.delete(id);
 	}
 	@PutMapping("/{id}")
-	public void update(@PathVariable("id") String id,@RequestBody Student st)
+	public void update(@PathVariable("id") String id,@RequestBody Course cou)
 	{
-		studentRepo.update(id, st);
+		courseRepo.update(id, cou);
 	}
-	
-	
-	
-	
 	
 }

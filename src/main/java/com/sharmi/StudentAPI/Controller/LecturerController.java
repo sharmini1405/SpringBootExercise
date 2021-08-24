@@ -1,11 +1,8 @@
 package com.sharmi.StudentAPI.Controller;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,48 +13,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sharmi.StudentAPI.Model.Student;
+import com.sharmi.StudentAPI.Model.Lecturer;
 import com.sharmi.StudentAPI.Repo.Repo;
-
-
 @RestController
-@RequestMapping("/student")
-public class StudentController {
-	
-	private Repo<String,Student> studentRepo=new Repo<String,Student>();
+@RequestMapping("/lecturer")
+public class LecturerController {
+	private Repo<Long,Lecturer> lecturerRepo=new Repo<Long,Lecturer>();
 	//private List<Student> studentList=new ArrayList<Student>();
 	
 	@GetMapping
-	public Collection<Student> getAll()
+	public Collection<Lecturer> getAll()
 	{
 		
-		return studentRepo.getAll();
+		return lecturerRepo.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Student get(@PathVariable("id") String id)
+	public Lecturer get(@PathVariable("id") Long id)
 	{
 		
-		return studentRepo.get(id);
+		return lecturerRepo.get(id);
 	}
 	@PostMapping
-	public void add(@RequestBody Student student) {
-		studentRepo.add(student);
+	public void add(@RequestBody Lecturer lecturer) {
+		lecturerRepo.add(lecturer);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable("id") String id)
+	public void delete(@PathVariable("id") Long id)
 	{
-		studentRepo.delete(id);
+		lecturerRepo.delete(id);
 	}
 	@PutMapping("/{id}")
-	public void update(@PathVariable("id") String id,@RequestBody Student st)
+	public void update(@PathVariable("id") Long id,@RequestBody Lecturer lt)
 	{
-		studentRepo.update(id, st);
+		lecturerRepo.update(id, lt);
 	}
-	
-	
-	
-	
 	
 }
