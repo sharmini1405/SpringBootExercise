@@ -1,13 +1,13 @@
-package com.sharmi.StudentAPI;
+package com.sharmi.BankDatabase;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StudentApi1Application {
+public class BankDatabaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StudentApi1Application.class, args);
+		SpringApplication.run(BankDatabaseApplication.class, args);
 	}
 
 }
