@@ -1,10 +1,10 @@
-package com.sharmi.BankDatabase;
+package com.sharmi.SocialmediaDatabase;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BankDatabaseApplicationTests {
+class SocialmediaDatabaseApplicationTests {
 
 	@Test
 	void contextLoads() {

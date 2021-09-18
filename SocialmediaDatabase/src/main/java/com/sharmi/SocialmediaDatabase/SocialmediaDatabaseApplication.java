@@ -1,13 +1,13 @@
-package com.sharmi.BankDatabase;
+package com.sharmi.SocialmediaDatabase;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BankDatabaseApplication {
+public class SocialmediaDatabaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BankDatabaseApplication.class, args);
+		SpringApplication.run(SocialmediaDatabaseApplication.class, args);
 	}
 
 }
