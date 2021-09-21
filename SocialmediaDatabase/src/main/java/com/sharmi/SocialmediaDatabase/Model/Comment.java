@@ -6,6 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @XmlRootElement
 public class Comment {
@@ -48,12 +50,14 @@ public class Comment {
 	public void setDatetime(String datetime) {
 		this.datetime = datetime;
 	}
+	@JsonIgnore
 	public User getCommentedBy() {
 		return commentedBy;
 	}
 	public void setCommentedBy(User commentedBy) {
 		this.commentedBy = commentedBy;
 	}
+	@JsonIgnore
 	public Post getCommentedIn() {
 		return commentedIn;
 	}

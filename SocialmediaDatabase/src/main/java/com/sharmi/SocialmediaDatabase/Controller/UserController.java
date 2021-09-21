@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
+import com.sharmi.SocialmediaDatabase.Model.Comment;
+import com.sharmi.SocialmediaDatabase.Model.Post;
 import com.sharmi.SocialmediaDatabase.Model.User;
 import com.sharmi.SocialmediaDatabase.Repo.UserRepo;
 
@@ -29,12 +32,30 @@ public class UserController {
  @GetMapping
  public List<User> getAll()
  {
-	 return repo.findAll();
+	 List<User> users=repo.findAll();
+	 for(User u : users)
+	 {
+		 String selfUrl= linkTo(UserController.class).slash(u.getUserid()).toString();
+		 String postUrl=linkTo(UserController.class).slash(u.getUserid()).slash("post").toString();
+		 String commentUrl=linkTo(UserController.class).slash(u.getUserid()).slash("comment").toString();
+		 
+		 u.addLink(selfUrl, "self");
+		 u.addLink(postUrl, "post");
+		 u.addLink(commentUrl, "comment");
+		 
+	 }
+	 return users ;
  }
  @GetMapping("/{id}")
  public User get(@PathVariable("id") String id)
  {
-	return repo.findById(id).get();
+	User u=repo.findById(id).get();
+	String postUrl=linkTo(UserController.class).slash(u.getUserid()).slash("post").toString();
+	 String commentUrl=linkTo(UserController.class).slash(u.getUserid()).slash("comment").toString();
+	 u.addLink(postUrl, "post");
+	 u.addLink(commentUrl, "comment");
+	 
+	return u;
  }
  
  @PostMapping
@@ -53,7 +74,16 @@ public class UserController {
  {
 	 repo.deleteById(id);
  }
- 
+ @GetMapping("/{id}/post")
+ public List<Post> getPosts(@PathVariable("id") String id)
+ {
+	return repo.findById(id).get().getPosts();
+ }
+ @GetMapping("/{id}/comment")
+ public List<Comment> getComments(@PathVariable("id") String id)
+ {
+	return repo.findById(id).get().getComments();
+ }
  
  
  

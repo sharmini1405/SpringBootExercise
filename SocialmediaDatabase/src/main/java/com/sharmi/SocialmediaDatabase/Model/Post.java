@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @XmlRootElement
 public class Post {
@@ -58,6 +60,7 @@ public String getDatetime() {
 public void setDatetime(String datetime) {
 	this.datetime = datetime;
 }
+@JsonIgnore
 public User getOwner() {
 	return owner;
 }

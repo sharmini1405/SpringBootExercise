@@ -1,12 +1,16 @@
 package com.sharmi.SocialmediaDatabase.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @XmlRootElement
 public class User {
@@ -20,6 +24,8 @@ public class User {
 	private List<Post> posts;
 	@OneToMany(mappedBy="commentedBy")
 	private List<Comment> comments;
+	@Transient
+	private List<Link> links=new ArrayList <Link>();
 	public User(String userid, String emailid, String firstname, String lastname, int age, List<Post> posts,
 			List<Comment> comments) {
 		super();
@@ -64,19 +70,32 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	@JsonIgnore
 	public List<Post> getPosts() {
 		return posts;
 	}
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
 	}
+	@JsonIgnore
 	public List<Comment> getComments() {
 		return comments;
 	}
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-	
+	public List<Link> getLinks() {
+		return links;
+	}
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+	public void addLink(String url,String relation)
+	{
+		Link l=new Link(url,relation);
+		links.add(l);
+		
+	}
 	
 	
 }
