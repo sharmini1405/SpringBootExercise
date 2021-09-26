@@ -1,13 +1,13 @@
-package com.sharmi.SocialmediaDatabase;
+package com.sharmi.DressSewer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SocialmediaDatabaseApplication {
+public class DressSewerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SocialmediaDatabaseApplication.class, args);
+		SpringApplication.run(DressSewerApplication.class, args);
 	}
 
 }

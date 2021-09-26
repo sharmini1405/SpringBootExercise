@@ -1,10 +1,10 @@
-package com.sharmi.SocialmediaDatabase;
+package com.sharmi.DressSewer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SocialmediaDatabaseApplicationTests {
+class DressSewerApplicationTests {
 
 	@Test
 	void contextLoads() {

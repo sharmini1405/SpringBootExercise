@@ -1,9 +1,7 @@
-package com.sharmi.SocialmediaDatabase.Controller;
+package com.sharmi.DressSewer.Controller;
 
 import java.util.List;
-
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,42 +13,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sharmi.SocialmediaDatabase.Model.Comment;
-import com.sharmi.SocialmediaDatabase.Model.Post;
-import com.sharmi.SocialmediaDatabase.Repo.CommentRepo;
-import com.sharmi.SocialmediaDatabase.Repo.PostRepo;
+import com.sharmi.DressSewer.Model.Dress;
+import com.sharmi.DressSewer.Model.Sewer;
+import com.sharmi.DressSewer.Repo.DressRepo;
+import com.sharmi.DressSewer.Repo.SewerRepo;
 
 @RestController
-@RequestMapping("/post")
-@Produces(MediaType.APPLICATION_XML)
-public class PostController {
+@RequestMapping("/sewer")
+public class SewerController {
 	@Autowired
-	 private PostRepo repo;
+	 private SewerRepo repo;
+	@Autowired
+	private DressRepo dressrepo;
 	 @GetMapping
-	 public List<Post> getAll()
+	 public List<Sewer> getAll()
 	 {
 		 return repo.findAll();
 	 }
 	 @GetMapping("/{id}")
-	 public Post get(@PathVariable("id") Long id)
+	 public Sewer get(@PathVariable("id") String id)
 	 {
 		return repo.findById(id).get();
 	 }
 	 
 	 @PostMapping
-	 public void add(@RequestBody Post post)
+	 public void add(@RequestBody Sewer sewer)
 	 {
-		 repo.save(post);
+		 repo.save(sewer);
 	 }
 	 
 	 @PutMapping
-	 public void update(@RequestBody Post post)
+	 public void update(@RequestBody Sewer sewer)
 	 {
-		 repo.save(post);
+		 repo.save(sewer);
 	 }
 	 @DeleteMapping("/{id}")
-	 public void delete(@PathVariable("id") Long id)
+	 public void delete(@PathVariable("id") String id)
 	 {
 		 repo.deleteById(id);
 	 }
+
 }
