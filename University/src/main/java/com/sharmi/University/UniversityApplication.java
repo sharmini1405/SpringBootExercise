@@ -1,13 +1,13 @@
-package com.sharmi.DressSewer;
+package com.sharmi.University;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DressSewerApplication {
+public class UniversityApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DressSewerApplication.class, args);
+		SpringApplication.run(UniversityApplication.class, args);
 	}
 
 }

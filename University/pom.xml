@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>lk.ac.vau</groupId>
-	<artifactId>DressSewer</artifactId>
+	<artifactId>University</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>DressSewer</name>
+	<name>University</name>
 	<description>Student Management Restfull webservice by SpringBoot</description>
 	<properties>
 		<java.version>11</java.version>

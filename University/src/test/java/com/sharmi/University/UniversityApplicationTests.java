@@ -1,10 +1,10 @@
-package com.sharmi.DressSewer;
+package com.sharmi.University;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DressSewerApplicationTests {
+class UniversityApplicationTests {
 
 	@Test
 	void contextLoads() {
